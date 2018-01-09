@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{752E8128-4E13-4251-9663-0C3CE93254E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LogicalTreeControlLibrary</RootNamespace>
+    <AssemblyName>LogicalTreeControlLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business_Layer\LogicalTreeNode_BL.cs" />
+    <Compile Include="Business_Layer\LogicalTreeView_BL.cs" />
+    <Compile Include="Data_Layer\LogicalTreeNode_DL.cs" />
+    <Compile Include="Data_Layer\LogicalTreeView_DL.cs" />
+    <Compile Include="Support_Classes\Attribute.cs" />
+    <Compile Include="Business_Layer\Attribute_BL.cs" />
+    <Compile Include="Support_Classes\Attribute_Db_Table_Field.cs" />
+    <Compile Include="Business_Layer\Attribute_Db_Table_Field_BL.cs" />
+    <Compile Include="Data_Layer\Attribute_Db_Table_Field_DL.cs" />
+    <Compile Include="Support_Classes\Attribute_Db_Table_Field_Value.cs" />
+    <Compile Include="Business_Layer\Attribute_Db_Table_Field_Value_BL.cs" />
+    <Compile Include="Data_Layer\Attribute_Db_Table_Field_Value_DL.cs" />
+    <Compile Include="Data_Layer\Attribute_DL.cs" />
+    <Compile Include="Business_Layer\Business_Layer.cs" />
+    <Compile Include="Data_Layer\Data_Layer.cs" />
+    <Compile Include="Support_Classes\LogicalTreeData.cs" />
+    <Compile Include="Business_Layer\LogicalTreeData_BL.cs" />
+    <Compile Include="Data_Layer\LogicalTreeData_DL.cs" />
+    <Compile Include="Support_Classes\LogicalTreeNode.cs" />
+    <Compile Include="LogicalTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ucLogicalTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLogicalTree.Designer.cs">
+      <DependentUpon>ucLogicalTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ucLogicalTree.resx">
+      <DependentUpon>ucLogicalTree.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
