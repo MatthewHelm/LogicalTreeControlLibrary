@@ -13,6 +13,7 @@ namespace bcs.LogicalTree.LogicalTreeControlLibrary
    {
       // private LogicalTreeNode m_CurrentNode = null;
 
+
       private LogicalTreeNode m_CurrentNode = null;
       private List<Attribute_Db_Table_Field> lstAttribute_Db_Table_Field;
       //     lstAttribute_Db_Table_Field
@@ -25,18 +26,41 @@ namespace bcs.LogicalTree.LogicalTreeControlLibrary
 
       public LogicalTreeView()
       {
-         //List<Attribute_Db_Table_Field> lstAttribute_Table_Field = new List<Attribute_Db_Table_Field>();
-         //lstAttribute_Table_Field = Attribute_Db_Table_Field_BL.GetAttributeDbTableFieldList();
-         //String tmpStr = ((lstAttribute_Table_Field[0].Attribute_Db).Trim('[')).Trim(']');
-         //LogicalTreeNode n = new LogicalTreeNode(tmpStr);
-         //this.Nodes.Add(n);
+            //List<Attribute_Db_Table_Field> lstAttribute_Table_Field = new List<Attribute_Db_Table_Field>();
+            //lstAttribute_Table_Field = Attribute_Db_Table_Field_BL.GetAttributeDbTableFieldList();
+            //String tmpStr = ((lstAttribute_Table_Field[0].Attribute_Db).Trim('[')).Trim(']');
+            //LogicalTreeNode n = new LogicalTreeNode(tmpStr);
+            //this.Nodes.Add(n);
 
-         //  lstAttribute_Table_Field = new List<Attribute_Db_Table_Field>();
-         // lstAttribute_Table_Field
-         lstAttribute_Db_Table_Field = Attribute_Db_Table_Field_BL.GetAttributeDbTableFieldList();
+            //  lstAttribute_Table_Field = new List<Attribute_Db_Table_Field>();
+            // lstAttribute_Table_Field
+            lstAttribute_Db_Table_Field = Attribute_Db_Table_Field_BL.GetAttributeDbTableFieldList();
 
          // mch.  01.06.2018.  Added line below.
          lstAttribute = Attribute_BL.GetAttributeList();
+
+         // mch.  01.09.2018.  Test start 
+
+
+         // Attribute_Db_Table_Field obj;
+
+         //     obj = new Attribute_Db_Table_Field();
+
+
+         List<Attribute_Db_Table_Field> lstAttr;
+         Attribute_Db_Table_Field obj;
+
+         lstAttr = Attribute_Db_Table_Field_BL.GetAttributeDbTableFieldList();
+
+         
+     //    Attribute_Db_Table_Field obj = (Attribute_Db_Table_Field) from att in lstAttribute where att.Attribute_Name == "Period" select att;
+
+         obj = Attribute_Db_Table_Field_BL.GetAttributeDbTableFieldObjectGivenId(5, lstAttr);
+
+
+         string sqlString = LogicalTreeData_BL.ConstructQueryString(obj);
+
+         // mch.  01.09.2018.  End start 
 
          // lstAttribute_Table_Field
          String tmpStr = ((lstAttribute_Db_Table_Field[0].Attribute_Db).Trim('[')).Trim(']');
